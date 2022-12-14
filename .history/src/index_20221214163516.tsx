@@ -14,8 +14,8 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Videos /> },
       { path: 'videos', element: <Videos /> },
-      { path: 'videos/:keyword', element: <Videos /> },
-      { path: 'videos/watch/:id', element: <VideoDetail /> },
+      { path: 'videos/query', element: <Videos /> },
+      { path: 'videos/watch/id', element: <VideoDetail /> },
     ],
   },
 ]);
@@ -25,7 +25,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider
+      router={router}
+      fallbackElement={<div>loading</div>}
+    ></RouterProvider>
   </React.StrictMode>
 );
 
