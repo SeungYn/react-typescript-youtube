@@ -7,24 +7,20 @@ export default function Video({
   type,
 }: {
   video: VideoType;
-  type?: string;
+  type: string;
 }) {
   const navigate = useNavigate();
   const { title, thumbnails, publishedAt, channelTitle }: VideoSnippet =
     video.snippet;
 
-  const isList = type === 'list';
   return (
     <li
-      className={isList ? 'flex gep-1 m-2' : ''}
+      className='flex flex-col'
       onClick={() => {
         navigate(`/videos/watch/${video.id}`, { state: { video } });
       }}
     >
-      <img
-        className={isList ? 'w-60 mr-4' : 'w-full'}
-        src={thumbnails.medium.url}
-      />
+      <img className='w-full' src={thumbnails.medium.url} />
       <div>
         <p className='font-semibold my-2 line-clamp-2'>{title}</p>
         <p className='text-sm opacity-80'>{channelTitle}</p>

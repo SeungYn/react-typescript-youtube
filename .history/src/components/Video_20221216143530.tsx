@@ -16,7 +16,7 @@ export default function Video({
   const isList = type === 'list';
   return (
     <li
-      className={isList ? 'flex gep-1 m-2' : ''}
+      className={isList ? 'flex' : ''}
       onClick={() => {
         navigate(`/videos/watch/${video.id}`, { state: { video } });
       }}
